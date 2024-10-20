@@ -1,0 +1,35 @@
+﻿@model IEnumerable<_23DH113573_MyStore.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>DANH MỤC</h2>
+
+
+<table class="table col-lg-8">
+    <tr>
+        <th class="col-lg-5">
+            @*Html.DisplayNameFor(model => model.CategoryName)*@
+            Tên danh mục
+        </th>
+        <th class="col-lg-3"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.CategoryID }, new { @class = "btn btn-outline-primary btn-sm" }) |
+            @Html.ActionLink("Chi tiết","Details", new { id = item.CategoryID }, new { @class = "btn btn-outline-primary btn-sm" }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.CategoryID }, new { @class = "btn btn-outline-primary btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Thêm", "Create", null, new { @class = "btn btn-primary" })
