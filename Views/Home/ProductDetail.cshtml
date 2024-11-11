@@ -1,0 +1,165 @@
+﻿@model _23DH113573_MyStore.Models.ViewModel.ProductDetailsVM
+@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<style>
+    .pro {
+        padding: 50px 10px 50px 10px;
+        background-color: ghostwhite;
+    }
+
+    .pro-section {
+        background-color: white;
+        border: 1px groove #FFFFFF;
+        border-radius: 10px;
+        margin: 10px;
+    }
+
+    
+    .pro-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap; 
+    }
+
+    /* Căn chỉnh ảnh sản phẩm bên trái */
+    .pro-image {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        min-width: 250px; 
+    }
+
+        .pro-image img {
+            max-height: 250px;
+            max-width: 200px;
+            padding: 5px;
+        }
+
+    /* Căn chỉnh mô tả sản phẩm ở giữa */
+    .pro-description {
+        flex: 2;
+        padding: 10px;
+        min-width: 300px;
+    }
+
+    .pro-price {
+        font-weight: bolder;
+        font-size: larger;
+        color: red;
+    }
+
+    .pro-sale {
+        font-weight: lighter;
+    }
+
+    /* Căn chỉnh phần thanh toán bên phải */
+    .pro-payment {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        min-width: 250px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    /* Cải thiện phần sản phẩm tương tự */
+    .related-products {
+        margin-top: 30px;
+    }
+
+        .related-products .product-list {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px; 
+            overflow-x: auto; 
+        }
+
+        .related-products .product-item {
+            flex: 0 0 200px; /* Mỗi sản phẩm có chiều rộng cố định */
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+            .related-products .product-item img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+
+            .related-products .product-item .prodName {
+                font-weight: bold;
+                margin-top: 10px;
+            }
+
+            .related-products .product-item .prodPrice {
+                color: red;
+                font-size: 16px;
+                margin-top: 5px;
+            }
+</style>
+
+<div class="container-fluid pro">
+    <div class="pro-content">
+        <!-- Ảnh sản phẩm bên trái -->
+        <div class="pro-image">
+            <img src="@Model.product.ProductImage" />
+        </div>
+
+        <!-- Mô tả sản phẩm ở giữa -->
+        <div class="pro-description">
+            <h4><strong>@Html.DisplayFor(model => model.product.ProductName)</strong></h4>
+            <p class="pro-sale">Đã bán: @Model.product.OrderDetails.Count</p>
+            <p class="pro-price">@Model.product.ProductPrice.ToString("C")</p>
+            <p>Loại: @Model.product.Category.CategoryName</p>
+            <hr />
+            <h5><strong>Mô tả</strong></h5>
+            <p>@Model.product.ProductDescription</p>
+        </div>
+
+        <!-- Thanh toán bên phải -->
+        <div class="pro-payment">
+            <div class="form-group">
+                @using (Html.BeginForm("ProductDetail", "Home", FormMethod.Get))
+                {
+                    <h4><strong>Số lượng </strong></h4>
+                    <p>@Html.TextBoxFor(model => model.quantity, new { @class = "form-control", @type = "number", @min = 1 })</p>
+
+                    <h4><strong>Tạm tính</strong></h4>
+                    <p>@Model.estimatedValue.ToString("N0")</p>
+
+                    <p>
+                        @Html.ActionLink("Thêm vào giỏ hàng", "AddToCart", "Cart", new { id = Model.product.ProductID, quantity = Model.quantity },
+                       new { @class = "btn btn-info" })
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Sản phẩm tương tự nằm dưới mô tả -->
+    <div class="related-products">
+        <h4><strong>Sản phẩm tương tự</strong></h4>
+        <div class="product-list">
+            @foreach (var product in Model.RelatedProducts)
+            {
+                <div class="product-item">
+                    <!-- Tạo liên kết đến trang chi tiết sản phẩm -->
+                    <a href="@Url.Action("ProductDetail", "Home", new { id = product.ProductID })">
+                        <img src="@product.ProductImage" alt="@product.ProductName" />
+                    </a>
+                    <div class="prodName">@product.ProductName</div>
+                    <div class="prodPrice">@product.ProductPrice.ToString("N0")</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

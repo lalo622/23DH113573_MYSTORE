@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Fashion Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<style>
+    .top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #fff;
+    }
+
+    /* Logo */
+    .logo a {
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-right: 500px;
+    }
+
+    /* Main navigation */
+    .main-nav {
+        display: flex;
+        flex: 1; /* Để cho phần này chiếm không gian còn lại */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Menu sản phẩm căn giữa */
+    .product-menu {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Menu người dùng bên phải */
+    .user-menu {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Các liên kết */
+    .main-nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+    }
+
+        .main-nav a:hover {
+            color: #007bff;
+        }
+
+    /* Banner */
+    .banner {
+        position: relative;
+        text-align: center;
+    }
+
+    .banner-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .banner-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+    }
+
+    .search-cart {
+        display: flex;
+        justify-content: center; /* Căn giữa theo chiều ngang */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        gap: 10px; /* Khoảng cách giữa ô input và icon */
+        padding: 15px 0;
+        background-color: #f9f9f9; /* Màu nền nhẹ */
+    }
+
+        /* Style cho ô tìm kiếm */
+        .search-cart input[type="text"] {
+            width: 300px; /* Độ rộng của ô tìm kiếm */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+            /* Placeholder cho ô tìm kiếm */
+            .search-cart input[type="text"]::placeholder {
+                color: #999;
+            }
+
+        /* Style cho icon giỏ hàng */
+        .search-cart a {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+        }
+
+            .search-cart a:hover {
+                color: #007bff; /* Màu xanh khi hover */
+            }
+</style>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <a href="/">PORTO eCommerce</a>
+            </div>
+            <nav class="main-nav">
+
+                <ul class="product-menu">
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Đầm</a></li>
+                    <li><a href="#">Chân Váy</a></li>
+                    <li><a href="#">Áo</a></li>
+                </ul>
+
+                <ul class="user-menu">
+                    <li><a href="#">Đăng Nhập</a></li>
+                    <li><a href="#">Tài Khoản</a></li>
+                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-content">
+            <img src="https://cotton4u.vn/files/news/2024/11/01/b0bbefc32189310f4def5fe56d26d7ba.webp" alt="Her Signature" class="banner-img">
+            <div class="banner-text">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        @RenderBody() <!-- Đây là nơi để hiển thị nội dung từng trang cụ thể -->
+    </main>
+
+    <!-- Footer -->
+
+
+</body>
+</html>
+

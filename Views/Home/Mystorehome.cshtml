@@ -1,0 +1,30 @@
+﻿@model _23DH113573_MyStore.Models.ViewModel.HomeProductVM
+@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/Mystyle/CustomHome.css" />
+<section class="banner">
+    <div class="banner-content">
+        <img src="https://cotton4u.vn/files/news/2024/11/01/b0bbefc32189310f4def5fe56d26d7ba.webp" alt="Her Signature" class="banner-img">
+        <div class="banner-text">
+
+        </div>
+    </div>
+</section>
+@using (Html.BeginForm("Mystorehome", "Home", FormMethod.Get))
+{
+    <div class="search-cart">
+        @Html.TextBoxFor(m => m.SearchTerm,
+            new { @class = "search-input", placeholder = "Nhập tên sản phẩm" })
+
+        <button type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+}
+
+
+@Html.Partial("_PVFeatureProduct", Model)
+@Html.Partial("_PVNewProduct", Model)
+
+

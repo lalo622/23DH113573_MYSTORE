@@ -1,33 +1,85 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model _23DH113573_MyStore.Models.ViewModel.HomeProductVM
+@{
+    <link rel="stylesheet" type="text/css" href="~/Content/Mystyle/CustomHome.css" />
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porto E-commerce</title>
+    <link rel="stylesheet" href="yle.css">
+</head>
+<body>
+    <!-- Thanh điều hướng -->
+    <header>
+        <div class="navbar">
+            <div class="logo">Porto eCommerce</div>
+            <nav>
+                <a href="#">Trang chủ</a>
+                <a href="#">Thời trang</a>
+
+                <a href="#">Tài khoản của tôi</a>
+                <a href="#">Đăng nhập</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-text">
+            <img src="https://cotton4u.vn/files/news/2024/11/01/b0bbefc32189310f4def5fe56d26d7ba.webp">
+
+
+        </div>
     </section>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
-    </div>
-</main>
+    <!-- Danh mục sản phẩm -->
+    <section class="categories">
+        <div class="category">
+            <img src="https://api.woggles.in/api/catalog/products/woggles_new_image_9_12_2022/midnight_polarized_wayfarer_sunglasses_base_28-9-2023.jpg" alt="Kính mát">
+            <h3>Kính mát</h3>
+        </div>
+        <div class="category">
+            <img src="https://img01.ztat.net/article/spp-media-p1/70c67513ae044eeeb220a3e03a8d8848/d91d970aa805496c90dbc45ca2a20067.jpg?imwidth=762&filter=packshot" alt="Váy nữ">
+            <h3>Váy nữ</h3>
+        </div>
+        <div class="category">
+            <img src="https://storage.googleapis.com/ep-material/images/ldf/ldf-desktop/NF4161GZ_000_24.webp" alt="Túi xách nữ">
+            <h3>Túi xách nữ</h3>
+        </div>
+    </section>
+
+    <!-- Sản phẩm nổi bật hàng tuần -->
+    <section class="weekly-featured">
+        <h2>Sản phẩm nổi bật hàng tuần</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="https://cotton4u.vn/files/product/thumab/400/2024/11/05/fd0f4e8beddf8fdf5e9818c678ce0a7d.webp" alt="Thời trang nữ - Xanh">
+                <p>Áo gilê cổ kiểu</p>
+                <p>Giá: 1.390.000đ</p>
+            </div>
+            <div class="product">
+                <img src="https://cotton4u.vn/files/product/thumab/400/2024/11/05/2d514773ad1091e7cae0abc483a69a73.webp" alt="Thời trang nữ - Đen">
+                <p>Áo Thun văn hoa</p>
+                <p>Giá: 790.000đ</p>
+            </div>
+            <div class="product">
+                <img src="https://cotton4u.vn/files/product/thumab/400/2024/11/05/14b5ae2fd2847a741ac80b9e32f3203f.webp" alt="Thời trang nữ - Xanh">
+                <p>Đầm ôm cổ kiểu Pauline </p>
+                <p>Giá: 2.490.000</p>
+            </div>
+            <div class="product">
+                <img src="https://cotton4u.vn/files/product/thumab/400/2024/11/05/0de62187bc043fa0a4eb21960cafdf74.webp" alt="Thời trang nữ - Xanh">
+                <p>Đầm lụa xếp ly</p>
+                <p>Giá: 1.890.000đ</p>
+            </div>
+
+            
+        </div>
+    </section>
+</body>
+</html>
